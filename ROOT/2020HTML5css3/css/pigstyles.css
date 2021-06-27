@@ -1,0 +1,26 @@
+body {
+			background-image: url(../../零食代理项目/img/tupian.jpg);
+		}
+		h1,h2,h3{
+			text-align: center;
+			color:white;
+		}
+		
+		p{
+			text-indent: 32px;
+			font-size: 18px;
+			line-height: 34px;
+		}
+		
+		h4{
+			text-indent: 32px;
+			font-size: 18px;
+		}
+		img{
+			margin-left: 45%;
+		}
+		#cutepig{
+			position: absolute;
+			left: 50%;
+			margin-left: -220px;
+		}

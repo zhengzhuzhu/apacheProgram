@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>商品代理</title>
+		<link rel="stylesheet" type="text/css" href="../css/daili.css" />
+		<script type="text/javascript">
+			function ShowLocateTime() {
+				now = new Date;
+				document.write(now.getFullYear() + "年" + (now.getMonth() + 1) + "月" + now.getDate() + "日" + now.getHours() + "点" + now.getMinutes() + "分");
+			}
+			function search(){
+				alert("查询搜索中。。。");
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="container">
+			<div id="top">
+				<div id="rithtmenu">
+					<ul>
+						<li class="pic help"></li>
+						<li>
+							<a href="#">帮助中心</a>
+						</li>
+
+						<li class="pic swsy"></li>
+						<li>
+							<a href="#">设为首页</a>
+						</li>
+						<li>
+
+						</li>
+						<li class="pic btn">
+							<a href="#">登陆
+							</a>
+						</li>
+						<li>
+
+						</li>
+						<li class="pic btn">
+							<a href="#">注册</a>
+						</li>
+					</ul>
+				</div>
+
+				<div id="welcome">
+					你好，欢迎访问！
+					<script type="text/javascript">
+						ShowLocateTime();
+					</script>
+				</div>
+				<div id="mainmenu">
+					<ul>
+						<li id="logo">
+							logo
+						</li>
+						<li>
+							<a href="#">首页</a>
+						</li>
+						<li>
+							<a href="#">公司介绍</a>
+						</li>
+						<li id="xiala">
+							<a href="#">公司产品<br/>
+			<!--子菜单111<br/>
+			子菜单111<br/>
+			子菜单111<br/>
+			子菜单111<br/>
+			子菜单111<br/>
+			子菜单111<br/>
+			子菜单111<br/>-->
+							</a>
+						</li>
+
+						<li>
+							<a href="#">服务热线</a>
+						</li>
+
+						<li>
+							<button id="btn" onclick=search()>查询</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="bottom">
+
+			</div>
+		</div>
+	</body>
+
+	</body>
+
+</html>

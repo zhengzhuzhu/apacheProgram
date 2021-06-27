@@ -1,0 +1,154 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div style="margin-left: 30px; margin-top: 30px">
+    <form action="">
+      {% csrf_token %}
+    <h3>用户注册</h3>
+    <p>用户名：<input type="text" name="userName"></p>
+    <p>密码：<input type="password" name="password"></p>
+    <p>邮箱：<input type="text" name="email"></p>
+      <input id="avatar" type="text" value="/images/1.jpg" name="avatar" style="width: 400px"> {# 实际应用中要将该input标签隐藏，display:none; #}
+      <p><input type="submit" value="注册"></p>
+      </form>
+    <div style="position: absolute; top: 85px; left: 300px;">
+    <input id="avatarSlect" type="file" style="position: absolute;float: left; z-index: 10; opacity: 0;width: 100px; height: 100px;">
+    <img id="avatarPreview" src="/images/1.jpg" title="点击更换图片" style="position: absolute; z-index: 9; float: left; width: 100px; height: 100px">
+      </div>
+  </div>
+</body>
+<script src="/static/jquery-3.2.1.js"></script>
+<script>
+  $(function () {
+      bindAvatar();
+ });
+  function bindAvatar() {
+      if(window.URL.createObjectURL){
+        bindAvatar3();
+      }else if(window.FileReader){
+        bindAvatar2();
+      }else {
+        bindAvatar1();
+      }
+ }
+  /*Ajax上传至后台并返回图片的url*/
+  function bindAvatar1() {
+    $("#avatarSlect").change(function () {
+    var csrf = $("input[name='csrfmiddlewaretoken']").val();
+    var formData=new FormData();
+    formData.append("csrfmiddlewaretoken",csrf);
+    formData.append('avatar', $("#avatarSlect")[0].files[0]);  /*获取上传的图片对象*/
+    $.ajax({
+      url: '/upload_avatar/',
+          type: 'POST',
+          data: formData,
+          contentType: false,
+          processData: false,
+          success: function (args) {
+        console.log(args);  /*服务器端的图片地址*/
+              $("#avatarPreview").attr('src','/'+args);  /*预览图片*/
+              $("#avatar").val('/'+args);  /*将服务端的图片url赋值给form表单的隐藏input标签*/
+     }
+      })
+ })
+  }
+  /*window.FileReader本地预览*/
+  function bindAvatar2() {
+    console.log(2);
+       $("#avatarSlect").change(function () {
+           var obj=$("#avatarSlect")[0].files[0];
+           var fr=new FileReader();
+           fr.onload=function () {
+               $("#avatarPreview").attr('src',this.result);
+               console.log(this.result);
+               $("#avatar").val(this.result);
+      };
+      fr.readAsDataURL(obj);
+    })
+ }
+ /*window.URL.createObjectURL本地预览*/
+ function bindAvatar3() {
+   console.log(3);
+      $("#avatarSlect").change(function () {
+          var obj=$("#avatarSlect")[0].files[0];
+          var wuc=window.URL.createObjectURL(obj);
+           $("#avatarPreview").attr('src',wuc);
+           $("#avatar").val(wuc);
+{#           $("#avatarPreview").load(function () {#}    /*当图片加载后释放内存空间，但在jQuery3.2.1中会报错。浏览器关闭后也会自动释放*/
+{#               window.URL.revokeObjectURL(wuc);#}
+{#      })#}
+   })
+ }
+</script>
+</html>-->
+	
+	
+	<html>
+<head>
+	<meta charset="UTF-8">
+<style>
+    #box{
+      width: 300px;
+      height: 300px;
+      border: 2px solid #858585;
+    }
+    #imgshow{
+      width: 100%;
+      height: 100%;
+    }
+    #pox{
+      width: 70px;
+      height: 24px;
+      overflow: hidden;
+    }
+	#imgshow2{ width:50px; height:50px} 
+  </style>
+  <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+  <p id="box">
+    <img id="imgshow" src="" alt=""/>
+  </p>
+  <p id="pox">
+    <input id="filed" type="file" accept="image/*"/>
+  </p>
+  <div>
+  <input type="button" value="测试" onclick="javascript:button_onclick();" />
+</div>  
+  <p id="box2">
+    <img id="imgshow2" src="" alt="" />
+  </p>
+<script>
+	//用来保存图片的全局变量，以便在别处使用该图片
+	var ori={}
+    //在input file内容改变的时候触发事件
+    $('#filed').change(function(){
+    //获取input file的files文件数组;
+    //$('#filed')获取的是jQuery对象，.get(0)转为原生对象;
+    //这边默认只能选一个，但是存放形式仍然是数组，所以取第一个元素使用[0];
+      var file = $('#filed').get(0).files[0];
+    //创建用来读取此文件的对象
+      var reader = new FileReader();
+    //使用该对象读取file文件
+      reader.readAsDataURL(file);
+    //读取文件成功后执行的方法函数
+      reader.onload=function(e){
+		ori=e;
+    //读取成功后返回的一个参数e，整个的一个进度事件
+        console.log(e);
+    //选择所要显示图片的img，要赋值给img的src就是e中target下result里面的base64编码格式的地址
+        $('#imgshow').get(0).src = e.target.result;
+      }
+    }
+	)
+	function button_onclick(){
+		$('#imgshow2').get(0).src = ori.target.result;
+	}
+</script>
+</body>
+</html>
+

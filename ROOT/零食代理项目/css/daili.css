@@ -1,0 +1,114 @@
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			#container{
+				width: 1100px;
+				height: 1000px;
+				background: url(../img/tupian.jpg) no-repeat;
+				margin: auto;
+			}
+			/*头部样式表*/
+			#container #top{
+				width: 100%;
+				height: 15%;
+			}
+			
+			#container #top #rithtmenu{
+				width: 450px;
+				height: 32px;
+				float: right;
+				
+			}
+			#container #top #rithtmenu ul li {
+				width: 50px;
+				height: 22px;
+			  
+				list-style: none;
+				float: left;
+				font-size: 12px;
+				text-align: center;
+				line-height: 21px;
+				margin-top:15px;
+			}
+			
+			#container #top #rithtmenu ul a {
+				line-height: 25px;
+				color: #000000;
+				
+			}
+			
+			#container #top #rithtmenu ul .pic {
+				width: 33px;
+				background: url(../../img/product/icon.gif) no-repeat 2px -2px;
+			}
+					
+			#container #top #welcome{
+				margin: auto;
+				width: 393px;
+				height: 50px;
+				font-size: 14px;
+				letter-spacing: 2px;
+				/*清除浮动*/
+				clear:both;
+				/*相对定位*/
+				position: relative;
+				top:25px;
+				/*left: 180px;*/
+			}
+			#container #top #mainmenu{
+				width: 100%;
+				height: 100px;
+				
+			}
+			#container #top  #mainmenu #logo{
+				width: 254px;
+				height: 78px;
+				
+				left: 50px;
+			}
+			#container #top #mainmenu ul li{
+				list-style: none;
+				float: left;
+				width: 150px;
+				height: 33px;
+				text-align: center;
+				line-height: 100px;
+				letter-spacing: 2px;
+				
+			}
+			
+			#container #top #mainmenu ul li a{
+				display: block;
+				text-decoration: none;
+				color: black;
+				font-weight: bold;
+				font-size: 20px;
+				width: 100px;
+				height: 50px;
+				
+			}
+			#container #top #mainmenu ul li #xiala a{
+				font-size: 5px;
+				display: red;
+				/*溢出部分隐藏*/
+				overflow: hidden;
+				text-align: center;
+			}
+			#container #top #mainmenu ul li #shousuo{
+				width: 20px;
+				height: 20px;
+				position: relative;
+				top: -3px;
+				left: 70px;
+				
+				}
+			#container #bottom{
+				width: 90%;
+				height: 50%;
+				background-color:ghostwhite ;
+				margin: 50px;
+				
+				text-align: center;
+			}
+			

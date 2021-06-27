@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>28colgroup与col属性设置表格列的样式</title>
+	</head>
+	<style>
+		table,tr,td{
+			border:1px solid black;
+			border-collapse: collapse;
+		}
+	</style>
+	<body>
+		<table >
+			<colgroup>
+				<col style="background: red;" />
+				<col span="2" style="background: olive;" />
+			</colgroup>
+			<tr><th>Header</th>
+				<th>Header</th>
+				<th>Header</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td rowspan="3">2</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				
+				<td>6</td>
+			</tr>
+				<td>7</td>
+				
+			    <td>9</td>
+			</tr>
+		</table>
+	</body>
+</html>

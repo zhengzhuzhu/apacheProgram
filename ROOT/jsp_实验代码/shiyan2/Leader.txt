@@ -1,0 +1,4 @@
+﻿<%@page contentType="text/html;charset=GB2312"%>
+<a href="first.jsp">链接到页面1</a>
+<a href="second.jsp">链接到页面2</a>
+<a href="third.jsp">链接到页面3</a>

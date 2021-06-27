@@ -1,0 +1,100 @@
+.head {
+	height: 110px;
+}
+
+.input_content{
+	width: 600px;
+	margin: 0 auto;
+	height: 70px;
+}
+
+#content .top{
+	margin-top: 20px;
+	height: 385px;
+}
+
+#test-image-preview {
+	float: left;
+	margin: 10px 0 0 130px;
+　	border: 1px solid black;
+	border-radius: 2px;
+   	width: 300px;
+	height: 300px;
+	background-color: white;
+   	background-size: contain;
+   	background-repeat: no-repeat;
+  	background-position: center center;
+}
+
+.textarea{
+	height: 220px;
+}
+
+.textarea span{
+	float: left;
+}
+
+.textarea textarea{
+	margin: 20px 0 0 4px;
+	font-size: 22px;
+}
+.input_content .losttype{
+	width: 200px;
+	height: 30px;
+	margin: 0 auto;
+	margin: 17px 0 0 4px;
+	font-size: 22px;
+}
+#content span{
+	display: inline-block;
+	width: 125px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	font-size: 22px;
+	float: left;
+}
+
+#content .input_content input{
+	width: 340px;
+	height: 30px;
+	font-size: 21px;
+	margin: 17px 0 0 4px;
+}
+
+#content .submit,#content .return{
+	color: black;
+	text-align: center;
+	line-height: 50px;
+	text-decoration: none;
+	margin: 10px 5px 0;
+	float: right;
+	width: 120px;
+	height: 50px;
+	font-size: 24px;
+	border-radius: 2px;
+	border: none;
+	background-color: white;
+	cursor: pointer;
+	font-weight: 100;
+}
+
+.weixinlogin{
+	color: black;
+	text-align: center;
+	line-height: 31px;
+	text-decoration: none;
+	margin: 17px 6px;
+	float: right;
+	width: 100px;
+	height: 31px;
+	font-size: 21px;
+	border-radius: 2px;
+	border: 1px solid grey;
+	background-color: #DDDDDD;
+	float: left;
+}
+
+#content{
+	height: 1060px;
+}

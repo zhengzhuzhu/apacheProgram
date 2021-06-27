@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=750,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+		<div class="page startGame">
+			<h1 class="title">欢迎来到海大答题APP</h1>
+			<button class="startBtn">开始游戏</button>
+		</div>
+		<div class="page endGame"><!--中间有一个空格，意味着是两个名字-->
+			<div id="score">
+				恭喜你答对<span class="scoreNum">0</span>道题,
+				共获得<span class="scores">0</span>分！
+			</div>
+			<button class="reStart">重新开始</button>
+		</div>
+		
+		<script scr="js/timu.js" type="text/javascript" charset="UTF-8"></script>
+		<script type="text/javascript">
+			var h3=document.querySelector(".title")/*title是题目文件中题目的属性名*/
+			var options=document.querySelector(".options")
+			var startBtn=document.querySelector(".startBtn")
+			var timuDiv=document.querySelector(".timu")
+			var  currentTimu;/*当前题目*/
+			var isClick=false;/*是否按钮*/
+			var answerList;
+			var count=10;/*每次随机出10道题目*/
+			var score=0;
+			var scores=0;
+			
+			function ajax(url,fn){/*URL：浏览器网址，fn:?*/
+				var xhr=new XMLHttpRequest();/*实例化对象*/
+				xhr.open("GET",url);/*GET方式提交地址*/
+				xhr.send();/*发送*/
+				/*监听事件*/
+				xhr.onreadystatechange=function(){
+					if(xhr.status==200&&xhr.readyState==4){
+						fn(xhr);
+					}
+				}
+			}
+			
+			function abc(){
+				answerList=timuList/*json文件的题目集合名？*/
+				/*随机抽取一道题*/
+				var randomNum=parseInt(Math.random()*answerList.length);
+				currentTimu=answerList[randomNum];
+				console.log(currentTimu);
+				renderTimu(currentTimu);/*renderTimu是？*/
+			}
+			
+			/*渲染页面？？？*/
+			function renderTimu(currentTimu){
+				count--;
+				if(count==0){
+					document.querySelector(".endGame").style.zIndex="100";/*10道题答完，获取结束数据,zIndex设置可以使得页面覆盖在最上面*/
+					document.querySelector(".scoreNum").innerHTML=score;
+					return;
+				}
+				/*统一题目的顺序号和编号*/
+				h3.innerHTML=currentTimu.quiz;/*quiz是？？？*/
+				options.innerHTML=""/*???*/
+				for(var i=0;i<currentTimu.options.length;i++){
+					var div=document.createElement("div");
+					div.className="item"+(i+1)
+					div.dataset.index=i+1;
+					div.innerHTML=(i+1)+"."+currentTimu.options[i];
+					options.appendChild(div)/*？？？*/
+				}
+			}
+			
+			/*按钮事件*/
+			options.onclick=function(e){
+				if(isClick||e.target.className=="options"){/*没有按下去事件或按的地方不属于按钮事件*/
+					return;
+				}else{
+					var index=e.target.dataset.index;/*index是按钮事件下的选项的序号*/
+					console.log(index)
+					/*判断选择的答案是否正确，正确的话标绿色，不正确标为红色同时显示正确答案*/
+					if(currentTimu.answer==index){
+						e.target.style.background="yellowgreen"
+						score+=10;
+						scoreNum+=1;
+					}else{
+						e.target.style.background="red"
+						var div=document.querySelector('.options.item'+currentTimu.answer)
+						div.style.background="yellowgreen"
+					}
+					isClick=true/*按钮事情发生*/
+					
+					setTimeout(function(){
+						abc();
+						isClick=false;
+					},2000)/*2s*/
+				}
+			}
+			startBtn.onclick = function(){
+				timuDiv.style.zIndex = "20";
+			}
+			document.querySelector(".reStart").onclick = function(){
+				location.reload();
+			}
+			abc();
+		</script>
+	</body>
+</html>

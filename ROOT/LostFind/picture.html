@@ -1,0 +1,241 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片上传</title>
+
+    <style type="text/css">
+    /*
+    css
+     */
+    #fileimg{
+        width:200px;
+        height:200px;
+        border:1px solid #eee;
+    }
+    .Btn{
+        width:100px;
+        background: #4BCD61;
+        border: 0px;
+    }
+    </style>
+    <script type="text/javascript">
+    //JS
+    function fileClick() {
+    document.getElementById('file').click()
+    }//触发一个触发浏览事件，没有的话点击button就不会出现选择框了
+
+    function upCh(file){
+        let img = document.getElementById('fileimg')
+    let formData = new FormData()
+    let imgUrl = file.files[0];
+    if (imgUrl){
+        formData.append('file',imgUrl);
+        imgUrl.src = window.URL.createObjectURL(imgUrl)//window.URL.createObjectURL预览图片
+       /*
+        这里可以写上传到后端代码
+        */
+    }
+}
+
+    </script>
+
+</head>
+<body>
+<input type="file" id="file" name="" onchange="upCh(this)" />
+<br />
+<img id="fileimg" src="" />
+<br />
+<button class="Btn" onclick="fileClick()">上传图片</button>
+</body>
+</html>-->
+	
+	<!--<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>图片上传预览</title>
+ 
+ 
+<script type="text/javascript">
+	var iMaxFilesize = 2097152; //2M
+    function imgPreview(fileDom){
+        //判断是否支持FileReader
+        if (window.FileReader) {
+            var reader = new FileReader();
+        } else {
+            alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！");
+        }
+ 
+        //获取文件
+        var file = fileDom.files[0];
+        var imageType = /^image\//;
+        //是否是图片
+        if (!imageType.test(file.type)) {
+            alert("请选择图片！");
+            return;
+        }
+        if (file .size > iMaxFilesize) {
+            alert("图片大小不能超过2M");
+            return;
+        }
+        //读取完成
+        reader.onload = function(e) {
+            //获取图片dom
+            var img = document.getElementById("preview");
+            //图片路径设置为读取的图片
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+        alert(document.getElementById("file"))
+    }
+</script>
+</head>
+<body>
+    <img id="preview" />
+    <br />
+    <input type="file" name="file" id="file" οnchange="imgPreview(this)" />
+</body>
+</html>-->
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>html5上传后立即显示</title>
+    <script type="text/javascript">
+        function ProcessFile(e) {
+            var file = document.getElementById('file').files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    var txt = event.target.result;
+ 
+                    var img = document.createElement("img");
+                    img.src = txt;//将图片base64字符串赋值给img的src
+                   // console.log(txt);
+                    document.getElementById("result").appendChild(img);
+                };
+            }
+            reader.readAsDataURL(file);
+        }
+ 
+        function contentLoaded() {
+            document.getElementById('file').addEventListener('change',
+                ProcessFile, false);
+        }
+ 
+        window.addEventListener("DOMContentLoaded", contentLoaded, false);
+    </script>
+</head>
+<body>
+请选取一个图像文件: <input type="file" id="file" name="file"/>
+<div id="result"></div>
+<div><img src="1.jpg"></div>
+</body>
+</html>-->
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>html5上传后立即显示</title>
+<img src="" class="bg">
+ <input type="file" accept="image/*" id="imagehead" value="" class="upload" />
+
+ 
+
+<script type="text/javascript">
+        
+            var id=store.get("id");
+            var UserId=store.get("UserId");
+            $(".upload").on("change",function(){
+                var objUrl = getObjectURL(this.files[0]);
+                if(objUrl){
+                    $(".picture img").show().attr("src",objUrl);
+                    $(".picture span").hide();
+                }
+            })
+            $(".add").click(function(){
+
+                var apic=$(".picture img").attr("src");
+                var pickname=$(".nickname input").val();
+                var files = $('#imagehead').prop('files');
+
+                 var fd = new FormData();
+                        fd.append("UserId",UserId);
+                        fd.append("file",files[0]);
+
+                $.ajax({
+                    type:"post",
+                    url:turl+'/User/UpdateHeadImage',
+                    data:fd,
+                    processData:false,
+                    success:function(res){
+                        console.log(res);
+                        if(res.code=="0"){
+
+                        }else{
+                            //BW.Toast(res.msg);
+                        }
+                        
+                    },error:function(res){
+                        console.log("error2:"+JSON.stringify(res));
+                    }
+                })
+                
+            })        
+            
+            function getObjectURL(file) {
+                var url = null ;
+                if (window.createObjectURL!=undefined) { // basic
+                url = window.createObjectURL(file) ;
+                } else if (window.URL!=undefined) { // mozilla(firefox)
+                url = window.URL.createObjectURL(file) ;
+                } else if (window.webkitURL!=undefined) { // webkit or chrome
+                url = window.webkitURL.createObjectURL(file) ;
+                }
+                return url ;
+            }
+        </script>
+</html>-->
+<!--
+<!DOCTYPE html>
+<html>
+	
+	<head>
+    <title>uploadPreview演示</title>
+    <script src="uploadPreview.js" type="text/javascript"></script>
+    
+    <script>
+       window.onload = function () { 
+            new uploadPreview({ UpBtn: "up_img", DivShow: "imgdiv", ImgShow: "imgShow" });
+        }
+    </script>
+</head>
+<body>
+    <div id="imgdiv">
+		<img id="imgShow" width="100" height="100" />
+	</div>
+    <input type="file" id="up_img" />
+</body>
+</html>-->
+	
+	<!-- zhouxiang www.zhou-xiang.com -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>uploadPreview演示</title>
+    <script src="http://www.decadework.com/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="uploadPreview.min.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            $("#up").uploadPreview({ Img: "ImgPr", Width: 300, Height: 300, ImgType: ["gif", "jpeg", "jpg", "bmp", "png"], Callback: function () { }});
+        });
+    </script>
+</head>
+<body>
+    <div><img id="ImgPr" width="120" height="120" /></div>
+    <input type="file" id="up" />
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>pre标签、code标签</title>
+	</head>
+	<body>
+		<pre>
+			<code>
+			&#60;p&#62;你最喜欢吃的水果是：&#60;span id=&#34;fruit&#34;&#62;&#60;/span&#62;&#60;/p&#62;
+			&#60;script type=&#34;text/javascript&#34;&#62;
+			var user_input=prompt(&#34;你最喜欢的水果是：&#34;);
+			document.gotElementById(&#34;fruit&#34;).innerHTML=user_input;
+			&#60;/script&#62;
+			</code>
+		</pre>
+		<p>上面的代码定义了一个变量<var>user_input</var>,用于接收用户的输入。</p>
+		<p>如果用户输入的是<kbd>香蕉</kbd>，那么程序将打印<samp>你最喜欢吃的水果是：香蕉</samp></p>
+	</body>
+</html>

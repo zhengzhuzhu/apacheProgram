@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app>
+<servlet>
+	<servlet-name>computerAverage</servlet-name>
+	<servlet-class>user.yourservlet.HandleAverage</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>computerAverage</servlet-name>
+	<url-pattern>/lookAverage</url-pattern>
+</servlet-mapping>
+
+    <servlet>
+        <servlet-name>hello</servlet-name>
+        <servlet-class>china.dalian.Hello</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>hello</servlet-name>
+        <url-pattern>/lookHello</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>life</servlet-name>
+        <servlet-class>china.dalian.lifecycle</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>life</servlet-name>
+        <url-pattern>/life</url-pattern>
+    </servlet-mapping>
+
+   <servlet>
+        <servlet-name>computer</servlet-name>
+        <servlet-class>china.dalian.Computer</servlet-class>
+   </servlet>
+   <servlet-mapping>
+        <servlet-name>computer</servlet-name>
+        <url-pattern>/getNumber</url-pattern>
+   </servlet-mapping>
+   <servlet>
+       <servlet-name>show</servlet-name>
+       <servlet-class>china.dalian.ShowLetter</servlet-class>
+   </servlet>
+   <servlet-mapping>
+       <servlet-name>show</servlet-name>
+       <url-pattern>/helpMeShow</url-pattern>
+   </servlet-mapping>
+   <servlet>
+       <servlet-name>computerPI</servlet-name>
+       <servlet-class>china.dalian.ComputerPI</servlet-class>
+   </servlet>
+   <servlet-mapping>
+       <servlet-name>computerPI </servlet-name>
+       <url-pattern>/computerPI</url-pattern>
+   </servlet-mapping>
+   <servlet>
+       <servlet-name>ok</servlet-name>
+       <servlet-class>china.dalian.Show</servlet-class>
+   </servlet>
+   <servlet-mapping>
+       <servlet-name>ok</servlet-name>
+       <url-pattern>/show</url-pattern>
+   </servlet-mapping>
+   <servlet>
+       <servlet-name>verify</servlet-name>
+       <servlet-class>china.dalian.Verify</servlet-class>
+   </servlet>
+   <servlet>
+       <servlet-name>showMessage</servlet-name>
+       <servlet-class>china.dalian.ShowMessage</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>verify</servlet-name>
+      <url-pattern>/verifyYourMessage</url-pattern>
+   </servlet-mapping>
+   <servlet-mapping>
+       <servlet-name>showMessage</servlet-name>
+       <url-pattern>/forYouShowMessage</url-pattern>
+   </servlet-mapping>
+   <servlet>
+       <servlet-name>guess</servlet-name>
+       <servlet-class>china.dalian.HandleGuess</servlet-class>
+   </servlet>
+   <servlet-mapping>
+       <servlet-name>guess</servlet-name>
+       <url-pattern>/handleGuess</url-pattern>
+    </servlet-mapping>
+<servlet>
+
+      <servlet-name>logindemo</servlet-name>
+
+      <servlet-class>loginDemo.LoginServlet</servlet-class>
+
+  </servlet>
+
+  <servlet-mapping>
+
+      <servlet-name>logindemo</servlet-name>
+
+      <url-pattern>/loginDemo</url-pattern>
+
+  </servlet-mapping>
+
+</web-app>
+

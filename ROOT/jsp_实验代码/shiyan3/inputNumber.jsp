@@ -1,0 +1,19 @@
+﻿<%@ page contentType="text/html;charset=GB2312" %>
+<html>
+	<body bgcolor=coral>
+		<font size=6>
+			<form action="receiveNumber.jsp" method=post name=form>
+			输入运算数、选择运算符号：<br>
+			<input type=text name="numberOne" size=4 >
+			<select name="operator">
+				<option value="+">+
+				<option value="-">-
+				<option value="*">*
+				<option value="/">/
+			</select>
+			<input type=text name="numberTwo" size=6 >
+			<br><input type="submit" value="提交你的选择" name="submit">
+			</form>
+		</font>
+	</body>
+</html>

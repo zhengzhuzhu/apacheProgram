@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>26ruby标签注音与bdo标签修改左右方向</title>
+	</head>
+	<body>
+		<h4>ruby\rt:注音\rp元素：当浏览器不支持ruby时显示</h4>
+		<ruby>魑<rp>(</rp><rt>chi</rt></rp></ruby>
+		<ruby>魅<rp>(</rp><rt>mei</rt></rp></ruby>
+		<ruby>魍<rp>(</rp><rt>wang</rt></rp></ruby>
+		<ruby>魉<rp>(</rp><rt>liang</rt></rp></ruby>
+		
+		<h4>bdo元素：允许修改文本方向。ltr属性:从左往右；rtl：从右往左</h4>
+		<bdo dir="rtl">
+		<ruby>魑<rp>(</rp><rt>chi</rt></rp></ruby>
+		<ruby>魅<rp>(</rp><rt>mei</rt></rp></ruby>
+		<ruby>魍<rp>(</rp><rt>wang</rt></rp></ruby>
+		<ruby>魉<rp>(</rp><rt>liang</rt></rp></ruby>
+		</bdo>
+		
+	</body>
+</html>

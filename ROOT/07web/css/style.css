@@ -1,0 +1,95 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html,body,.page{
+	width: 100%;
+	height: 100%;
+	background: #efefef;
+}
+.page{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.swiper-container {
+			    width: 375px;
+			    height: 200px;
+} 
+		
+.index{
+	z-index: 1;
+}
+.newsList{
+	width: 375px;
+}
+.newsList .newsItem{
+	/*将a标签变成弹性元素*/
+	width: 375px;
+	display: flex;
+	height: 100px;
+}
+.newsItem .left{
+	width: 100px;
+	height: 100px;
+}
+.newsItem img{
+	margin: 10px;
+	width: 80px;
+	height: 80px;
+}
+.swiperLeft{
+	animation: swiperLeft 1s forwards;
+	z-index: 2;
+}
+
+.news .content{
+	height: 100px;
+	overflow: hidden;
+}
+.more{
+	height: 30px;
+	background: rgba(0,0,0,0.1);
+	font-weight: 700;
+	text-align: center;
+	line-height: 30px;
+}
+
+@keyframes swiperLeft{
+	from{
+		transform: translateX(375px);
+	}
+	to{
+		transform: translateX(0px);
+	}
+}
+.swiperRight{
+	animation: swiperRight 1s forwards;
+	z-index: 2;
+}
+@keyframes swiperRight{
+	from{
+		transform: translateX(0px);
+	}
+	to{
+		transform: translateX(375px);
+	}
+}
+
+.news .back{
+	height: 40px;
+	line-height: 40px;
+	background: #fff;
+	border-bottom: 1px solid #bbb;
+	box-shadow: 0px 3px 3px #aaa;
+	padding: 0 20px;
+}
+
+.news .newsContent{
+	padding:20px;
+}
+
+.news .newsContent img{
+	max-width: 100%;
+}

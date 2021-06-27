@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>27表格的thead与tbody与tfoot</title>
+	</head>
+	<style type="text/css">
+		table{
+			border: 1px solid black;
+			border-collapse: collapse;
+			/*使得两个边框重叠，属性可参考：man.ilovefishc.com*/
+		}
+		th{
+			border: 1px solid blue;
+			/*padding属性调整单元格的内边距*/
+			padding: 5px;
+			}
+		thead th{
+			/*设置背景颜色为灰色,字体为白色*/
+			background: gray;
+			color: white;
+		}
+		tbody td{
+			background:#BBBBBB;
+			color: white;
+		}
+		td{
+			border: 1px solid red;
+		}
+		caption{
+			padding: 5px;
+		}
+		tfoot td{
+			text-align: center;
+		}
+	</style>
+	<body>
+		<table>
+			<!--给表格添加标头-->
+			<caption>学生信息表</caption>
+			<thead>
+			<tr>
+				<th>表头1：姓名</th>
+				<th>表头2：性别</th>
+				<th>表头3：班级</th>
+				<th>表头4：备注</th>
+			</tr>
+			</thead>
+			<tbody>
+				<td>王五</td>
+				<td>男</td>
+				<td>1172班</td>
+				<td>让编程改变世界</td>
+			</tr>
+			<tr>
+				<td>李白</td>
+				<td>男</td>
+				<td>1174班</td>
+				<td>爱笑的人，心情都会美美哒</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<!--横跨列数：th\td属性colspan;跨行rawspan-->
+				<td colspan="4">以上资料仅供娱乐</td>
+			</tr>
+		</tfoot>
+		</table>
+</html>

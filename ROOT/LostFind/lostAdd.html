@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>广东海洋大学失物招领</title>
+		<link rel="stylesheet" type="text/css" href="css/Lost.css" />
+		<link rel="stylesheet" type="text/css" href="css/LostAdd.css" />
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/LostAdd.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="main">
+			<div class="head">
+				<h1>广东海洋大学后勤集团</h1>
+				<p>拾取失物信息填写</p>
+			</div>
+			<div id="content">
+				<form action="post">
+					<div class="input_content top">
+						<span>失物图片:</span>
+						<a href="wechat.html" class="weixinlogin">微信登录</a>
+						<input type="file" id="image" name="test" accept="image/gif, image/jpeg, image/png, image/jpg">						
+						<div id="test-image-preview">
+						</div>
+					</div>
+					<div class="input_content">
+						<span>失物名称:</span>
+						<input type="text" id="name"/>
+					</div>
+					<div class="input_content">
+						<span>失物类型:</span>
+						<select class="losttype"id="losttype">
+						  <option value ="mobile">手机</option>
+						  <option value="yikatong">一卡通</option>
+						  <option value ="IDcard">身份证</option>
+						  <option value="bankcard">银行卡</option>
+						  <option value="book">书本</option>
+						  <option value ="yaoshi">钥匙</option>
+						  <option value ="bag">包包</option>
+						  <option value="cloth">衣物</option>
+						  <option value="shuma">数码配件</option>
+						  <option value="other">其他</option>
+						</select>
+					</div>
+                   
+					<div class="input_content textarea">
+						<span>失物描述:</span>
+						<textarea rows="8" cols="25" id="description"></textarea>
+					</div>
+					<div class="input_content">
+						<span>拾取人:</span>
+						<input type="text" id="people" />
+					</div>
+					<div class="input_content">
+						<span>拾取时间:</span>
+						<input type="text" id="date" />
+					</div>
+					<div class="input_content">
+						<span>拾取地点:</span>
+						<input type="text" id="place" />
+					</div>
+					<div class="input_content">
+						<span>联系方式:</span>
+						<input type="text" id="phone" />
+					</div>
+					<a class="return" href="javascript:history.go(-1)">返回</a>
+					<input type="button" id="sure" value="提交" class="submit" />
+				</form>
+			</div>
+			<div class="footer"></div>
+		</div>
+	</body>
+
+</html>
